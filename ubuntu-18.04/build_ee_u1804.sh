@@ -45,11 +45,13 @@ echo
 
 if [ ! -d "${EE_BUILD_EE_PATH}" ]; then
   echo "-   Cloning EmptyEpsilon repo to ${EE_BUILD_EE_PATH}..."
-  git clone https://github.com/daid/EmptyEpsilon.git "${EE_BUILD_EE_PATH}"
+  git clone https://github.com/DrCamel9000/EmptyEpsilon.git "${EE_BUILD_EE_PATH}"
+  cd "${EE_BUILD_EE_PATH}";
+  git checkout AutoconnectControlCode
 else
   echo "-   Fetching and merging EmptyEpsilon repo at ${EE_BUILD_EE_PATH}..."
   ( cd "${EE_BUILD_EE_PATH}";
-    git fetch --all && git merge --ff-only; )
+    git checkout AutoconnectControlCode && git fetch --all && git merge --ff-only; )
 fi
 echo
 
